@@ -2,6 +2,12 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Clear npm cache first
+RUN npm cache clean --force
+
+# Set npm registry
+RUN npm config set registry https://registry.npmjs.org/
+
 # Copy package files first
 COPY package.json ./
 
