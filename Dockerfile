@@ -1,11 +1,11 @@
-FROM node:22-alpine
+FROM node:20-alpine
 
 # Create app directory
 WORKDIR /usr/src/app
 
 # Install dependencies
 COPY package.json ./
-RUN npm install --no-package-lock
+RUN npm install
 
 # Bundle app source
 COPY . .
